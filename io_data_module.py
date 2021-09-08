@@ -7,11 +7,13 @@ def read_multi_dim_data(filename):
 
         while True:
             line = file.readline()
-            if len(line) == 0:
+            if len(line) == 0 or line == "\n":
                 break
-            line = line.replace("\n", "")
-            xy = line.split(",")
-            dataset.append((float(xy[0]), float(xy[1]), float(xy[2]), float(xy[3]), xy[4]))
+            else:
+                line = line.removesuffix("\n")
+                xy = line.split(",")
+                dataset.append(tuple(xy))
+            # dataset.append((float(xy[0]), float(xy[1]), float(xy[2]), float(xy[3]), xy[4]))
     except Exception as ex:
         print(ex.args)
     finally:
