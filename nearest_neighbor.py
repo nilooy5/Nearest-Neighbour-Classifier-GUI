@@ -9,8 +9,8 @@ def find_nearest_neighbor(unknown_tuple, given_dataset):
         if distance < smallest_distance:
             nearest_tuple = item
             smallest_distance = distance
-    print(smallest_distance)
-    print(nearest_tuple)
+    # print(smallest_distance)
+    # print(nearest_tuple)
     return nearest_tuple
 
 
