@@ -17,13 +17,11 @@ def find_nearest_neighbor(unknown_tuple, dataset_red, dataset_blue):
             nearest_tuple = item
             smallest_distance = distance
             dataset_color = "blue"
-    # print(smallest_distance)
-    # print(nearest_tuple)
     return [nearest_tuple, dataset_color]
 
 
 def find_distance(point_a, point_b):
     distance = math.sqrt(
-        (float(point_b[0])-float(point_a[0]))**2 +
-        (float(point_b[1])-float(point_a[1]))**2)
+        (float(point_b[0]) - float(point_a[0])) ** 2 +
+        (float(point_b[1]) - float(point_a[1])) ** 2)
     return distance
