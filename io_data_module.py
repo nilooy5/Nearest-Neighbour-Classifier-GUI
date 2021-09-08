@@ -11,7 +11,7 @@ def read_multi_dim_data(filename):
                 break
             else:
                 line = line.removesuffix("\n")
-                xy = line.split(",")
+                xy = line.split(" ")
                 dataset.append(tuple(xy))
     except Exception as ex:
         print(ex.args)
