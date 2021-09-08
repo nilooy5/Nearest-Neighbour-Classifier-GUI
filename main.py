@@ -7,6 +7,7 @@ dataSet_red = io.read_multi_dim_data("datasets/nearest-neighbor/red_2d.txt")
 dataSet_blue = io.read_multi_dim_data("datasets/nearest-neighbor/blue_2d.txt")
 
 unknown_tuple = (random.uniform(-6.0, 6.0), random.uniform(-6.0, 6.0))
+print(unknown_tuple)
 
 nearest_tuple = find_nearest_neighbor(unknown_tuple, dataSet_red, dataSet_blue)
 
