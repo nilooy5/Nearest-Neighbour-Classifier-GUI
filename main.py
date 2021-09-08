@@ -30,6 +30,11 @@ c.create_oval(float(unknown_tuple[0]) * scale - radius + offset,
                   float(unknown_tuple[1]) * scale - radius + offset,
                   float(unknown_tuple[0]) * scale + radius + offset,
                   float(unknown_tuple[1]) * scale + radius + offset,
+                  outline="blue", fill="white")
+c.create_oval(float(nearest_tuple[0]) * scale - radius + offset,
+                  float(nearest_tuple[1]) * scale - radius + offset,
+                  float(nearest_tuple[0]) * scale + radius + offset,
+                  float(nearest_tuple[1]) * scale + radius + offset,
                   outline="blue", fill="blue")
 c.pack()
 tk_window.mainloop()
