@@ -10,6 +10,5 @@ dataset_unknown = io.read_multi_dim_data("datasets/nearest-neighbor/unknown_2d.t
 unknown_tuple = (random.uniform(-6.0, 6.0), random.uniform(-6.0, 6.0))
 
 nearest_tuple_properties = find_nearest_neighbor(unknown_tuple, dataSet_red, dataSet_blue)
-print(nearest_tuple_properties)
 
 render_graph(dataSet_red, dataSet_blue, unknown_tuple, nearest_tuple_properties[0], nearest_tuple_properties[1])
