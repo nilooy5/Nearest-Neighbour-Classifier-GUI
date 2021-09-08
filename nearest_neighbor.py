@@ -1,17 +1,25 @@
 import math
 
 
-def find_nearest_neighbor(unknown_tuple, given_dataset):
+def find_nearest_neighbor(unknown_tuple, dataset_red, dataset_blue):
+    dataset_color = "white"
     nearest_tuple = (math.inf, math.inf)
     smallest_distance = math.inf
-    for item in given_dataset:
+    for item in dataset_red:
         distance = find_distance(unknown_tuple, item)
         if distance < smallest_distance:
             nearest_tuple = item
             smallest_distance = distance
+            dataset_color = "red"
+    for item in dataset_blue:
+        distance = find_distance(unknown_tuple, item)
+        if distance < smallest_distance:
+            nearest_tuple = item
+            smallest_distance = distance
+            dataset_color = "blue"
     # print(smallest_distance)
     # print(nearest_tuple)
-    return nearest_tuple
+    return [nearest_tuple, dataset_color]
 
 
 def find_distance(point_a, point_b):
