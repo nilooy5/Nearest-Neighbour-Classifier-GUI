@@ -11,7 +11,6 @@ offset = 300
 def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
     render_points(dataset_red, dataset_blue)
     for i in range(len(dataset_unknown)):
-        print(dataset_unknown[i], nearest_dataset[i][0], nearest_dataset[i][1])
         render_line_with_nearest_neighbor(dataset_unknown[i], nearest_dataset[i][0], nearest_dataset[i][1])
 
     c.pack()
