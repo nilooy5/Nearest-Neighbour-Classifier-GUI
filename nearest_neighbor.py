@@ -1,5 +1,3 @@
-import math
-
 result = []
 
 
@@ -11,8 +9,8 @@ def find_nearest_neighbor(dataset_unknown, dataset_red, dataset_blue):
 
 def find_nearest_neighbor_for_point(unknown_tuple, dataset_red, dataset_blue):
     dataset_color = "white"
-    nearest_tuple = (math.inf, math.inf)
-    smallest_distance = math.inf
+    nearest_tuple = (float("inf"), float("inf"))
+    smallest_distance = float("inf")
 
     for item in dataset_red:
         distance = find_distance(unknown_tuple, item)
