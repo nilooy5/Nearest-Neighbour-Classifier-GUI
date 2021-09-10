@@ -4,9 +4,9 @@ tk = Tk()
 tk.title("Nearest Neighbor Classifier")
 
 window = Canvas(tk, bg="white", height=700, width=1000)
-radius = 3.5
-scale = 50
-offset = 300
+radius = 3.5    # radius of the ovals
+scale = 50      # can be compared to zoom
+offset = 300    # to show the negative points
 
 
 def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
@@ -50,6 +50,7 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
                        float(unknown_tuple[0]) * scale + radius + offset,
                        float(unknown_tuple[1]) * scale + radius + offset,
                        outline="black", fill=nearest_tuple_color)
+
     # create label for unknown tuple
     window.create_text(float(unknown_tuple[0]) * scale - radius + offset,
                        float(unknown_tuple[1]) * scale - radius + offset,
@@ -61,6 +62,7 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
                        float(nearest_tuple[0]) * scale + radius + offset,
                        float(nearest_tuple[1]) * scale + radius + offset,
                        outline="black", fill=nearest_tuple_color)
+
     # create label for nearest tuple
     window.create_text(float(nearest_tuple[0]) * scale - radius + offset,
                        float(nearest_tuple[1]) * scale - radius + offset,
