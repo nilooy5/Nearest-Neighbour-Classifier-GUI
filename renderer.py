@@ -3,9 +3,9 @@ from tkinter import *
 tk_window = Tk()
 
 c = Canvas(tk_window, bg="white", height=700, width=1000)
-radius = 3.5
-scale = 50
-offset = 300
+radius = 3.5    # radius of the ovals
+scale = 50      # can be compared to zoom
+offset = 300    # to show the negative points
 
 
 def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
