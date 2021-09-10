@@ -9,9 +9,13 @@ scale = 50
 offset = 300
 
 
-def render_graph(dataset_red, dataset_blue, unknown_tuple, nearest_tuple, nearest_tuple_color):
+def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
     render_points(dataset_red, dataset_blue)
-    render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tuple_color)
+    for i in range(len(dataset_unknown)):
+        render_line_with_nearest_neighbor(dataset_unknown[i], nearest_dataset[i][0], nearest_dataset[i][1])
+
+    window.pack()
+    tk.mainloop()
 
 
 def render_points(dataset_red, dataset_blue):
@@ -61,5 +65,3 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
     window.create_text(float(nearest_tuple[0]) * scale - radius + offset,
                        float(nearest_tuple[1]) * scale - radius + offset,
                        text=str(nearest_tuple) + nearest_tuple_color)
-    window.pack()
-    tk.mainloop()
