@@ -32,7 +32,9 @@ def find_nearest_neighbor_for_point(unknown_tuple, dataset_red, dataset_blue):
 
 
 def find_distance(point_a, point_b):
-    distance = math.sqrt(
-        (float(point_b[0]) - float(point_a[0])) ** 2 +
-        (float(point_b[1]) - float(point_a[1])) ** 2)
+    difference_squared_sum = 0
+    for i in range(len(point_a)):
+        difference_squared_sum += ((float(point_b[i]) - float(point_a[i])) ** 2)
+
+    distance = (difference_squared_sum ** 0.5)
     return distance
