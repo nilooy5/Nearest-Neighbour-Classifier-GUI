@@ -15,8 +15,7 @@ def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
     for i in range(len(dataset_unknown)):
         render_line_with_nearest_neighbor(dataset_unknown[i], nearest_dataset[i][0], nearest_dataset[i][1])
 
-    window.pack()
-    tk.mainloop()
+    run_tk_window()
 
 
 # draw a list dataset
@@ -60,3 +59,8 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
     window.create_text(float(nearest_tuple[0]) * scale - radius + offset,
                        float(nearest_tuple[1]) * scale - radius + offset,
                        text=str(nearest_tuple) + nearest_tuple_color)
+
+
+def run_tk_window():
+    window.pack()
+    tk.mainloop()
