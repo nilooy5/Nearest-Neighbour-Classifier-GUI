@@ -1,7 +1,6 @@
 import io_data_module as io
 from renderer import render_graph
 from nearest_neighbor import generate_nearest_neighborhood_dataset, generate_neighborhood_dataset
-from generate_output import write_to_file
 
 dimension = 2
 
@@ -13,6 +12,6 @@ nearest_dataset = generate_nearest_neighborhood_dataset(dataset_unknown, dataSet
 
 neighborhood_dataset = generate_neighborhood_dataset(dataset_unknown, nearest_dataset)
 
-write_to_file(neighborhood_dataset, dimension)
+io.write_to_file(neighborhood_dataset, dimension)
 
 render_graph(dataSet_red, dataSet_blue, dataset_unknown, nearest_dataset)
