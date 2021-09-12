@@ -1,7 +1,7 @@
 result = []
 
 
-def find_nearest_neighbor(dataset_unknown, dataset_red, dataset_blue):
+def generate_nearest_neighborhood_dataset(dataset_unknown, dataset_red, dataset_blue):
     for item in dataset_unknown:
         result.append(find_nearest_neighbor_for_point(item, dataset_red, dataset_blue))
     return result
