@@ -36,3 +36,11 @@ def find_distance(point_a, point_b):
 
     distance = (difference_squared_sum ** 0.5)
     return distance
+
+
+def generate_neighborhood_dataset(dataset_unknown, nearest_dataset):
+    result_dataset = []
+    for i in range(len(dataset_unknown)):
+        result_dataset.append([dataset_unknown[i], nearest_dataset[i][1]])
+
+    return result_dataset
