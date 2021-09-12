@@ -10,7 +10,8 @@ offset = 300    # to show the negative points
 
 
 def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
-    render_points(dataset_red, dataset_blue)
+    render_points(dataset_red, "red")
+    render_points(dataset_blue, "blue")
     for i in range(len(dataset_unknown)):
         render_line_with_nearest_neighbor(dataset_unknown[i], nearest_dataset[i][0], nearest_dataset[i][1])
 
@@ -18,22 +19,14 @@ def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
     tk.mainloop()
 
 
-def render_points(dataset_red, dataset_blue):
-    # draw red dataset
-    for item in dataset_red:
+# draw a list dataset
+def render_points(dataset, color):
+    for item in dataset:
         window.create_oval(float(item[0]) * scale - radius + offset,
                            float(item[1]) * scale - radius + offset,
                            float(item[0]) * scale + radius + offset,
                            float(item[1]) * scale + radius + offset,
-                           outline="black", fill="red")
-
-    # draw blue dataset
-    for item in dataset_blue:
-        window.create_oval(float(item[0]) * scale - radius + offset,
-                           float(item[1]) * scale - radius + offset,
-                           float(item[0]) * scale + radius + offset,
-                           float(item[1]) * scale + radius + offset,
-                           outline="black", fill="blue")
+                           outline="black", fill=color)
 
 
 def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tuple_color):
