@@ -1,3 +1,4 @@
+# takes a file and returns a list
 def read_multi_dim_data(filename):
     file = None
     dataset = []
@@ -21,6 +22,7 @@ def read_multi_dim_data(filename):
     return dataset
 
 
+# takes a list; formats & saves in file with dimensions
 def write_to_file(dataset, dimension):
     formatted_dataset = stringify_dataset(dataset)
     filename = 'output_' + str(dimension) + 'D.txt'
@@ -30,6 +32,7 @@ def write_to_file(dataset, dimension):
     f.close()
 
 
+# takes a list and returns a string with the list formatted
 def stringify_dataset(dataset):
     formatted_dataset = ''''''
     for point, color in dataset:
