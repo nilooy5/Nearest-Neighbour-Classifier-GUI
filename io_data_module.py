@@ -25,6 +25,7 @@ def read_multi_dim_data(filename):
 # takes a list; formats & saves in file with dimensions
 def write_to_file(dataset, dimension):
     formatted_dataset = stringify_dataset(dataset)
+    print(formatted_dataset)
     filename = 'output_' + str(dimension) + 'D.txt'
 
     f = open(filename, 'w')
@@ -36,7 +37,11 @@ def write_to_file(dataset, dimension):
 def stringify_dataset(dataset):
     formatted_dataset = ''''''
     for point, color in dataset:
-        tuple_string = str(point)
+        tuple_string = "("
+        for item in point:
+            tuple_string += (str(item) + ", ")
+        tuple_string = tuple_string[:-2]
+        tuple_string += ")"
         formatted_dataset += ("The unknown point " + tuple_string + " falls in " + color + " class\n")
 
     return formatted_dataset
