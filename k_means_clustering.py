@@ -6,12 +6,17 @@ def generate_random_centroids(num_of_centroids):
 
 
 def find_closest_cluster_center(dataset, centroids):
+    cluster_center_dataset = []
+
     for point in dataset:
-        distance = float("inf")
+        smallest_distance = float("inf")
         closest_center = float("inf")
         for center in centroids:
-            local_distance = find_distance(point, center)
-            if local_distance < distance:
-                distance = local_distance
+            distance = find_distance(point, center)
+            if distance < smallest_distance:
+                smallest_distance = distance
                 closest_center = center
-        print("point:", point, "center:", closest_center, "distance:", distance)
+                print(closest_center)
+
+        cluster_center_dataset.append([point, closest_center, smallest_distance])
+    return cluster_center_dataset
