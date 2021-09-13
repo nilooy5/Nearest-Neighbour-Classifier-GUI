@@ -11,7 +11,7 @@ def generate_nearest_neighborhood_dataset(dataset_unknown, dataset_red, dataset_
 # determines nearest data-point for an unknown data-point
 def find_nearest_neighbor_for_point(unknown_tuple, dataset_red, dataset_blue):
     dataset_color = "white"
-    nearest_tuple = (float("inf"), float("inf"))
+    nearest_tuple = (float("inf"), float("inf"))    # this needs to be made dynamic OR delete this line
     smallest_distance = float("inf")
 
     for item in dataset_red:
