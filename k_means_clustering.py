@@ -14,4 +14,4 @@ def find_closest_cluster_center(dataset, centroids):
             if local_distance < distance:
                 distance = local_distance
                 closest_center = center
-        print("point:",point, "center:",closest_center, "distance:", distance)
+        print("point:", point, "center:", closest_center, "distance:", distance)
