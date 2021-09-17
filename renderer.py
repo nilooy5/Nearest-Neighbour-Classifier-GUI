@@ -63,6 +63,15 @@ def draw_line(nearest_tuple, unknown_tuple):
                        fill="green")
 
 
+def render_clusters(final_clusters):
+    for cluster in final_clusters:
+        for item in final_clusters[cluster]:
+            draw_line(item, cluster)
+        render_points(final_clusters[cluster], "blue")
+        render_points([cluster], "red")
+        draw_label(cluster, "")
+
+
 def run_tk_window():
     window.pack()
     tk.mainloop()
