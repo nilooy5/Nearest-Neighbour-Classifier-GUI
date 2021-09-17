@@ -4,9 +4,10 @@ tk = Tk()
 tk.title("Nearest Neighbor Classifier")
 
 window = Canvas(tk, bg="white", height=700, width=1000)
-radius = 3.5    # radius of the ovals
+radius = 3      # radius of the ovals
 scale = 50      # can be compared to zoom
 offset = 300    # to show the negative points
+colors_set = ["grey", "magenta", "green", "orange"]
 
 
 def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
@@ -26,7 +27,7 @@ def render_points(dataset, color):
 
 def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tuple_color):
     # create line between unknown & nearest tuple
-    draw_line(nearest_tuple, unknown_tuple)
+    draw_line(nearest_tuple, unknown_tuple, "green")
 
     # create oval for unknown tuple
     draw_oval(unknown_tuple, nearest_tuple_color)
@@ -55,21 +56,23 @@ def draw_label(nearest_tuple, nearest_tuple_color):
                        text=str(nearest_tuple) + nearest_tuple_color)
 
 
-def draw_line(nearest_tuple, unknown_tuple):
+def draw_line(nearest_tuple, unknown_tuple, line_color):
     window.create_line(float(unknown_tuple[0]) * scale + offset,
                        float(unknown_tuple[1]) * scale + offset,
                        float(nearest_tuple[0]) * scale + offset,
                        float(nearest_tuple[1]) * scale + offset,
-                       fill="green")
+                       fill=line_color)
 
 
 def render_clusters(final_clusters):
+    color_index = 0
     for cluster_center in final_clusters:
         for item in final_clusters[cluster_center]:
-            draw_line(item, cluster_center)
+            draw_line(item, cluster_center, colors_set[color_index % 4])
         render_points(final_clusters[cluster_center], "blue")
         render_points([cluster_center], "red")
         draw_label(cluster_center, "")
+        color_index += 1
 
 
 def run_tk_window():
