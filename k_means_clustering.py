@@ -6,7 +6,7 @@ def generate_random_centroids(num_of_centroids):
 
 
 def find_cluster_for_random_center(dataset, centroids):
-    cluster_center_dataset = []
+    cluster_center_with_distance = []
 
     for point in dataset:
         smallest_distance = float("inf")
@@ -17,34 +17,34 @@ def find_cluster_for_random_center(dataset, centroids):
                 smallest_distance = distance
                 closest_center = center
 
-        cluster_center_dataset.append([point, closest_center, smallest_distance])
+        cluster_center_with_distance.append([point, closest_center, smallest_distance])
 
-    get_average_centroid(cluster_center_dataset)
+    get_average_centroid(cluster_center_with_distance)
 
-    return cluster_center_dataset
+    return cluster_center_with_distance
 
 
-def get_average_centroid(dataset):
+def get_average_centroid(cluster_center_with_distance):
     sum_list = [0, 0]
     average_list = []
-    prev_to_new_centroid_list = []
+    prev_to_new_centroids_list = []
 
-    cluster_dictionary = generate_cluster_dictionary(dataset)
+    cluster_dictionary = generate_cluster_dictionary(cluster_center_with_distance)
     for item in cluster_dictionary:
-        prev_to_new_centroid_list.append(generate_average_center_for_class(cluster_dictionary[item], item))
+        prev_to_new_centroids_list.append(generate_average_center_for_class(cluster_dictionary[item], item))
 
-    print(prev_to_new_centroid_list)
+    decide_to_change_cluster(prev_to_new_centroids_list, cluster_center_with_distance)
 
     # data points are always stored in [i][0]
-    for i in range(len(dataset[0][0])):
-        for item in dataset:
+    for i in range(len(cluster_center_with_distance[0][0])):
+        for item in cluster_center_with_distance:
             # print(item)
             sum_list[i] += float(item[0][i])
             # print("row", i, item[0][i])
 
     # print(sum_list)
     for i in range(len(sum_list)):
-        average_list.append(sum_list[i] / len(dataset))
+        average_list.append(sum_list[i] / len(cluster_center_with_distance))
 
     # print(average_list)
 
@@ -75,3 +75,12 @@ def generate_average_center_for_class(cluster_points, cluster_name):
     return [cluster_name, tuple(average_centers)]
 
 #     now calculate distance between cluster_name and tuple(average_centers)
+
+
+def decide_to_change_cluster(points_pair_list, dataset):
+    distance = 0
+    for points_pair in points_pair_list:
+        distance += find_distance(points_pair[0], points_pair[1])
+
+    print("total:", distance)
+    print(dataset[0])
