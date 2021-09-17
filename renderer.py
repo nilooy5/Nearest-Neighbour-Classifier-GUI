@@ -30,11 +30,7 @@ def render_points(dataset, color):
 
 def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tuple_color):
     # create line between unknown & nearest tuple
-    window.create_line(float(unknown_tuple[0]) * scale + offset,
-                       float(unknown_tuple[1]) * scale + offset,
-                       float(nearest_tuple[0]) * scale + offset,
-                       float(nearest_tuple[1]) * scale + offset,
-                       fill="black")
+    draw_line(nearest_tuple, unknown_tuple)
 
     # create oval for unknown tuple
     window.create_oval(float(unknown_tuple[0]) * scale - radius + offset,
@@ -59,6 +55,14 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
     window.create_text(float(nearest_tuple[0]) * scale - radius + offset,
                        float(nearest_tuple[1]) * scale - radius + offset,
                        text=str(nearest_tuple) + nearest_tuple_color)
+
+
+def draw_line(nearest_tuple, unknown_tuple):
+    window.create_line(float(unknown_tuple[0]) * scale + offset,
+                       float(unknown_tuple[1]) * scale + offset,
+                       float(nearest_tuple[0]) * scale + offset,
+                       float(nearest_tuple[1]) * scale + offset,
+                       fill="green")
 
 
 def run_tk_window():
