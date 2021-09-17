@@ -4,10 +4,6 @@ threshold = 0.1
 final_cluster = []
 
 
-def generate_random_centroids(num_of_centroids):
-    print("okay")
-
-
 def find_cluster_for_random_center(dataset, centroids):
 
     cluster_center_with_distance = generate_cluster_center_with_distance(dataset, centroids)
