@@ -40,9 +40,7 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
                        outline="black", fill=nearest_tuple_color)
 
     # create label for unknown tuple
-    window.create_text(float(unknown_tuple[0]) * scale - radius + offset,
-                       float(unknown_tuple[1]) * scale - radius + offset,
-                       text=str(unknown_tuple) + nearest_tuple_color)
+    draw_label(unknown_tuple, nearest_tuple_color)
 
     # create oval for nearest tuple
     window.create_oval(float(nearest_tuple[0]) * scale - radius + offset,
@@ -52,6 +50,10 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
                        outline="black", fill=nearest_tuple_color)
 
     # create label for nearest tuple
+    draw_label(nearest_tuple, nearest_tuple_color)
+
+
+def draw_label(nearest_tuple, nearest_tuple_color):
     window.create_text(float(nearest_tuple[0]) * scale - radius + offset,
                        float(nearest_tuple[1]) * scale - radius + offset,
                        text=str(nearest_tuple) + nearest_tuple_color)
