@@ -64,12 +64,12 @@ def draw_line(nearest_tuple, unknown_tuple):
 
 
 def render_clusters(final_clusters):
-    for cluster in final_clusters:
-        for item in final_clusters[cluster]:
-            draw_line(item, cluster)
-        render_points(final_clusters[cluster], "blue")
-        render_points([cluster], "red")
-        draw_label(cluster, "")
+    for cluster_center in final_clusters:
+        for item in final_clusters[cluster_center]:
+            draw_line(item, cluster_center)
+        render_points(final_clusters[cluster_center], "blue")
+        render_points([cluster_center], "red")
+        draw_label(cluster_center, "")
 
 
 def run_tk_window():
