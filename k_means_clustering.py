@@ -53,16 +53,16 @@ def generate_cluster_dictionary(dataset_with_centers):
 
 def generate_average_center_for_class(cluster_points, cluster_name):
     average_centers = []
-    print("length:", len(cluster_points), cluster_points)
+    # print("length:", len(cluster_points), cluster_points)
     for i in range(len(cluster_points[0])):
         sum_for_x_coordinate = 0
         for item in cluster_points:
-            print("coord", i, ":", item[i])
+            # print("coord", i, ":", item[i])
             sum_for_x_coordinate += float(item[i])
 
         average_centers.append(sum_for_x_coordinate/len(cluster_points))
 
-    print("average for", cluster_name, "cluster's data-points:", average_centers, "length:", len(cluster_points))
+    # print("average for", cluster_name, "cluster's data-points:", average_centers, "length:", len(cluster_points))
 
     return [cluster_name, tuple(average_centers)]
 
@@ -76,9 +76,9 @@ def decide_to_change_cluster(points_pair_list, dataset, cluster_dictionary):
         new_points.append(points_pair[1])
         distance += find_distance(points_pair[0], points_pair[1])
 
-    print("old:", old_points)
-    print("new:", new_points)
-    print("total:", distance)
+    # print("old:", old_points)
+    # print("new:", new_points)
+    # print("total:", distance)
     if distance > threshold:
         find_cluster_for_random_center(dataset, new_points)
     else:
