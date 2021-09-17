@@ -7,9 +7,10 @@ window = Canvas(tk, bg="white", height=700, width=1000)
 radius = 3      # radius of the ovals
 scale = 50      # can be compared to zoom
 offset = 300    # to show the negative points
-colors_set = ["grey", "magenta", "green", "orange"]
+colors_set = ["grey", "magenta", "green", "orange"]     # color sets taken for drawing specific colors for a cluster
 
 
+# renders graph for nearest neighbor
 def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
     render_points(dataset_red, "red")
     render_points(dataset_blue, "blue")
@@ -25,6 +26,7 @@ def render_points(dataset, color):
         draw_oval(item, color)
 
 
+# takes an unknown tuple, nearest tuple and its class and then draws them
 def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tuple_color):
     # create line between unknown & nearest tuple
     draw_line(nearest_tuple, unknown_tuple, "green")
@@ -42,6 +44,7 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
     draw_label(nearest_tuple, nearest_tuple_color)
 
 
+# draws an oval for each points on the screen
 def draw_oval(item, color):
     window.create_oval(float(item[0]) * scale - radius + offset,
                        float(item[1]) * scale - radius + offset,
@@ -50,12 +53,14 @@ def draw_oval(item, color):
                        outline="black", fill=color)
 
 
+# writes label for a point and its class if string is passed
 def draw_label(nearest_tuple, nearest_tuple_color):
     window.create_text(float(nearest_tuple[0]) * scale - radius + offset,
                        float(nearest_tuple[1]) * scale - radius + offset,
                        text=str(nearest_tuple) + nearest_tuple_color)
 
 
+# draws line between two tuples and picks the color depending on the parameter
 def draw_line(nearest_tuple, unknown_tuple, line_color):
     window.create_line(float(unknown_tuple[0]) * scale + offset,
                        float(unknown_tuple[1]) * scale + offset,
@@ -64,6 +69,7 @@ def draw_line(nearest_tuple, unknown_tuple, line_color):
                        fill=line_color)
 
 
+# renders clusters for k-means algorithm's resultant cluster set
 def render_clusters(final_clusters):
     color_index = 0
     for cluster_center in final_clusters:
