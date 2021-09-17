@@ -21,11 +21,7 @@ def render_graph(dataset_red, dataset_blue, dataset_unknown, nearest_dataset):
 # draw a list dataset
 def render_points(dataset, color):
     for item in dataset:
-        window.create_oval(float(item[0]) * scale - radius + offset,
-                           float(item[1]) * scale - radius + offset,
-                           float(item[0]) * scale + radius + offset,
-                           float(item[1]) * scale + radius + offset,
-                           outline="black", fill=color)
+        draw_oval(item, color)
 
 
 def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tuple_color):
@@ -33,24 +29,24 @@ def render_line_with_nearest_neighbor(unknown_tuple, nearest_tuple, nearest_tupl
     draw_line(nearest_tuple, unknown_tuple)
 
     # create oval for unknown tuple
-    window.create_oval(float(unknown_tuple[0]) * scale - radius + offset,
-                       float(unknown_tuple[1]) * scale - radius + offset,
-                       float(unknown_tuple[0]) * scale + radius + offset,
-                       float(unknown_tuple[1]) * scale + radius + offset,
-                       outline="black", fill=nearest_tuple_color)
+    draw_oval(unknown_tuple, nearest_tuple_color)
 
     # create label for unknown tuple
     draw_label(unknown_tuple, nearest_tuple_color)
 
     # create oval for nearest tuple
-    window.create_oval(float(nearest_tuple[0]) * scale - radius + offset,
-                       float(nearest_tuple[1]) * scale - radius + offset,
-                       float(nearest_tuple[0]) * scale + radius + offset,
-                       float(nearest_tuple[1]) * scale + radius + offset,
-                       outline="black", fill=nearest_tuple_color)
+    draw_oval(nearest_tuple, nearest_tuple_color)
 
     # create label for nearest tuple
     draw_label(nearest_tuple, nearest_tuple_color)
+
+
+def draw_oval(item, color):
+    window.create_oval(float(item[0]) * scale - radius + offset,
+                       float(item[1]) * scale - radius + offset,
+                       float(item[0]) * scale + radius + offset,
+                       float(item[1]) * scale + radius + offset,
+                       outline="black", fill=color)
 
 
 def draw_label(nearest_tuple, nearest_tuple_color):
