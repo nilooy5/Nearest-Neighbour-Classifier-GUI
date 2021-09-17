@@ -41,7 +41,7 @@ def get_average_centroid(cluster_center_with_distance, dataset):
     for item in cluster_dictionary:
         prev_to_new_centroids_list.append(generate_average_center_for_class(cluster_dictionary[item], item))
 
-    decide_to_change_cluster(prev_to_new_centroids_list, dataset)
+    decide_to_change_cluster(prev_to_new_centroids_list, dataset, cluster_dictionary)
 
 
 def generate_cluster_dictionary(dataset_with_centers):
@@ -71,7 +71,7 @@ def generate_average_center_for_class(cluster_points, cluster_name):
     return [cluster_name, tuple(average_centers)]
 
 
-def decide_to_change_cluster(points_pair_list, dataset):
+def decide_to_change_cluster(points_pair_list, dataset, cluster_dictionary):
     distance = 0
     old_points = []
     new_points = []
@@ -86,5 +86,4 @@ def decide_to_change_cluster(points_pair_list, dataset):
     if distance > threshold:
         find_cluster_for_random_center(dataset, new_points)
     else:
-        final_cluster.extend(old_points)
-        return final_cluster
+        final_cluster.append(cluster_dictionary)
