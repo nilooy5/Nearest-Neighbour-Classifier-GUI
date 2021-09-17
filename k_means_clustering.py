@@ -5,7 +5,7 @@ def generate_random_centroids(num_of_centroids):
     print("okay")
 
 
-def find_closest_cluster_center_list(dataset, centroids):
+def find_cluster_for_random_center(dataset, centroids):
     cluster_center_dataset = []
 
     for point in dataset:
@@ -27,10 +27,13 @@ def find_closest_cluster_center_list(dataset, centroids):
 def get_average_centroid(dataset):
     sum_list = [0, 0]
     average_list = []
+    prev_to_new_centroid_list = []
 
     cluster_dictionary = generate_cluster_dictionary(dataset)
     for item in cluster_dictionary:
-        print(cluster_dictionary[item])
+        prev_to_new_centroid_list.append(generate_average_center_for_class(cluster_dictionary[item], item))
+
+    print(prev_to_new_centroid_list)
 
     # data points are always stored in [i][0]
     for i in range(len(dataset[0][0])):
@@ -41,7 +44,7 @@ def get_average_centroid(dataset):
 
     # print(sum_list)
     for i in range(len(sum_list)):
-        average_list.append(sum_list[i]/len(dataset))
+        average_list.append(sum_list[i] / len(dataset))
 
     # print(average_list)
 
@@ -55,3 +58,20 @@ def generate_cluster_dictionary(dataset_with_centers):
             centroid_dict[item[-2]].extend(item[:-2])
 
     return centroid_dict
+
+
+def generate_average_center_for_class(cluster_points, cluster_name):
+    average_centers = []
+    print("length:", len(cluster_points), cluster_points)
+    for i in range(len(cluster_points[0])):
+        sum_for_x_coordinate = 0
+        for item in cluster_points:
+            print("coord", i, ":", item[i])
+            sum_for_x_coordinate += float(item[i])
+
+        average_centers.append(sum_for_x_coordinate/len(cluster_points))
+
+    print("average for", cluster_name, "cluster's data-points:", average_centers, "length:", len(cluster_points))
+    return [cluster_name, tuple(average_centers)]
+
+#     now calculate distance between cluster_name and tuple(average_centers)
