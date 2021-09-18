@@ -32,6 +32,8 @@ def write_to_file(dataset, dimension):
     f.write(formatted_dataset)
     f.close()
 
+    print("output stored in file " + "\"" + filename + "\"")
+
 
 # takes a list and returns a string with the list formatted
 def stringify_dataset(dataset):
