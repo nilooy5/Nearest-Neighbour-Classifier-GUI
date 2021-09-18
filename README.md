@@ -6,10 +6,12 @@
 ### email: [u3228358@uni.canberra.edu.au](mailto:u3228358@uni.canberra.edu.au)
 
 ### Instructions to run this project
-please run
-- [question_1.py](question_1.py) to test the **first problem**
-- [question_2.py](question_2.py) to test the **second problem**
+please run:
+1. [question_1.py](question_1.py) to test the **first problem**
+   - For [question_1.py](question_1.py) the unknown data-points with their class can also be visualized by **"un-commenting"** the `render_graph(dataSet_red, dataSet_blue, dataset_unknown, nearest_dataset)` line. After running the program by giving input from console by setting dimension (*2, 4 or 8; although the program runs for any dimension of data*) output files will be generated as [output_2D.txt](output_2D.txt), [output_4D.txt](output_4D.txt) & [output_8D.txt](output_8D.txt).
 
+2. [question_2.py](question_2.py) to test the **second problem**
+   - For [question_2.py](question_2.py)
 
 ### Datasets used:
 
