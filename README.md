@@ -1,15 +1,15 @@
 ## Nearest Neighbour Classifier
 | id | file name | count|
 | ----------- | ----------- | ----------- |
-| 1 | red_2d| 90 samples
-| 2 | blue_2d| 90 samples
-| 3 | unknown_2d| 20 samples  
-| 4 | red_4d| 65 samples
-| 5 | blue_4d| 65 samples
-| 6 | unknown_4d| 20 samples  
-| 7 | red_8d| 40 samples
-| 8 | blue_8d| 40 samples
-| 9 | unknown_8d| 20 samples
+| 1 | red_2d.txt| 90 samples
+| 2 | blue_2d.txt| 90 samples
+| 3 | unknown_2d.txt| 20 samples  
+| 4 | red_4d.txt| 65 samples
+| 5 | blue_4d.txt| 65 samples
+| 6 | unknown_4d.txt| 20 samples  
+| 7 | red_8d.txt| 40 samples
+| 8 | blue_8d.txt| 40 samples
+| 9 | unknown_8d.txt| 20 samples
 
 ## K-means Clustering
 | id | file name | description|
