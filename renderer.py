@@ -1,12 +1,12 @@
 from tkinter import *
 
 tk = Tk()
-tk.title("Nearest Neighbor Classifier")
+# tk.title("Nearest Neighbor Classifier")
 
 window = Canvas(tk, bg="white", height=700, width=1000)
 radius = 3      # radius of the ovals
-scale = 50      # can be compared to zoom
-offset = 300    # to show the negative points
+scale = 70      # can be compared to zoom
+offset = 200    # to show the negative points
 colors_set = ["grey", "magenta", "green", "orange"]     # color sets taken for drawing specific colors for a cluster
 
 
@@ -50,7 +50,7 @@ def draw_oval(item, color):
                        float(item[1]) * scale - radius + offset,
                        float(item[0]) * scale + radius + offset,
                        float(item[1]) * scale + radius + offset,
-                       outline="black", fill=color)
+                       outline="white", fill=color)
 
 
 # writes label for a point and its class if string is passed
