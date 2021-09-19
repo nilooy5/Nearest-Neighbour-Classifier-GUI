@@ -5,6 +5,7 @@
 # email:  u3228358@uni.canberra.edu.au  #
 # Unit:   Programming for Data Science  #
 # Course: Master of Data Science        #
+# See README.MD for detailed instruction#
 #########################################
 
 import io_data_module as io
