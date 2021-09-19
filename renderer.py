@@ -70,14 +70,15 @@ def draw_line(nearest_tuple, unknown_tuple, line_color):
 
 
 # renders clusters for k-means algorithm's resultant cluster set
-def render_clusters(final_clusters):
+def render_clusters(final_clusters, show_labels: bool):
     color_index = 0
     for cluster_center in final_clusters:
         for item in final_clusters[cluster_center]:
             draw_line(item, cluster_center, colors_set[color_index % 4])
         render_points(final_clusters[cluster_center], "blue")
         render_points([cluster_center], "red")
-        draw_label(cluster_center, "")
+        if show_labels is True:
+            draw_label(cluster_center, "")
         color_index += 1
 
 

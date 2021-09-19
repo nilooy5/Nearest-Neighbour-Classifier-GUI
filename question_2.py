@@ -25,6 +25,7 @@ initial_points = [(0.02, 0.82), (-0.004, 4.3), (3.8955, 2.392), (0.1, 2.1)]
 
 final_clusters = find_cluster_for_random_center(dataset, initial_points)[0]
 
-render.render_clusters(final_clusters)
+# change the show_labels to "False" to turn off the coordinates of the centroids on XY plane
+render.render_clusters(final_clusters, show_labels=True)
 
 render.run_tk_window()
