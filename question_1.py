@@ -16,6 +16,7 @@ try:
 
         io.write_to_file(neighborhood_dataset, dimension)
 
+        # uncomment following line to visualize the code
         # render_graph(dataSet_red, dataSet_blue, dataset_unknown, nearest_dataset)
     else:
         raise ValueError

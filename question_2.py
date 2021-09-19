@@ -4,7 +4,10 @@ from k_means_clustering import find_cluster_for_random_center
 
 dataset = io.read_multi_dim_data("datasets/K-means/data_4c_2d.txt")
 
+# points for 4C 2d
 initial_points = [(0.02, 0.82), (-0.004, 4.3), (3.8955, 2.392), (0.1, 2.1)]
+
+# points for 2C 2D
 # initial_points = [(0.02, 0.82), (-0.004, 4.3)]
 
 final_clusters = find_cluster_for_random_center(dataset, initial_points)[0]
