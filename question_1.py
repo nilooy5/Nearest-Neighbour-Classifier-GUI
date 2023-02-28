@@ -1,13 +1,3 @@
-#########################################
-# Assignment 1 (Question 1)             #
-# name:   Fazal Mahmud Niloy            #
-# ID:     3228358                       #
-# email:  u3228358@uni.canberra.edu.au  #
-# Unit:   Programming for Data Science  #
-# Course: Master of Data Science        #
-# See README.MD for detailed instruction#
-#########################################
-
 import io_data_module as io
 from renderer import render_graph
 from nearest_neighbor import generate_nearest_neighborhood_dataset, generate_neighborhood_dataset

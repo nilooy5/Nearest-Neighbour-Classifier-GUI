@@ -1,13 +1,3 @@
-#########################################
-# Assignment 1 (Question 2)             #
-# name:   Fazal Mahmud Niloy            #
-# ID:     3228358                       #
-# email:  u3228358@uni.canberra.edu.au  #
-# Unit:   Programming for Data Science  #
-# Course: Master of Data Science        #
-# See README.MD for detailed instruction#
-#########################################
-
 import io_data_module as io
 import renderer as render
 from k_means_clustering import find_cluster_for_random_center

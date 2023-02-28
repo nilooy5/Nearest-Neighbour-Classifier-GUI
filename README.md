@@ -1,9 +1,5 @@
-# PDS: Assignment 1
+
 ## Fazal Mahmud Niloy
-### Course: Master of Data Science
-### Unit: Programming in Data Science
-### ID: 3228358
-### email: [u3228358@uni.canberra.edu.au](mailto:u3228358@uni.canberra.edu.au)
 
 ### Instructions to run this project
 please run:
